@@ -5,468 +5,640 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    <title>Sayli Beauty Parlour</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Tailwind Starter Template - Nordic Shop: Tailwind Toolbox</title>
+    <meta name="description" content="Free open source Tailwind CSS Store template">
+    <meta name="keywords"
+        content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
+
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link href='demo.html'>
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+    <style>
+        .work-sans {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        #menu-toggle:checked+#menu {
+            display: block;
+        }
+
+        .hover\:grow {
+            transition: all 0.3s;
+            transform: scale(1);
+        }
+
+        .hover\:grow:hover {
+            transform: scale(1.02);
+        }
+
+        .carousel-open:checked+.carousel-item {
+            position: static;
+            opacity: 100;
+        }
+
+        .carousel-item {
+            -webkit-transition: opacity 0.6s ease-out;
+            transition: opacity 0.6s ease-out;
+        }
+
+        #carousel-1:checked~.control-1,
+        #carousel-2:checked~.control-2,
+        #carousel-3:checked~.control-3 {
+            display: block;
+        }
+
+        .carousel-indicators {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            bottom: 2%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        #carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
+        #carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
+        #carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
+            color: #000;
+            /*Set to match the Tailwind colour you want the active one to be */
+        }
+    </style>
+
 </head>
 
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
-    <div class="main-wrapper">
-        <div class="nav-background">
-            <div class="mobile-logo">
-                <img src="/icons/logo.svg" alt="">
-            </div>
-            <div class="mobile-nav">
-                <div class="cart">
-                    <div class="flex items-center">
-                        <img src="/icons/cart-dark.svg" alt="">
-                        <a href="#">0 Items - ($0.00)</a>
-                    </div>
-                </div>
-                <div class="nav-top">
-                    <ul>
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">About us</a>
-                        </li>
-                        <li>
-                            <a href="#">Products</a>
-                        </li>
-                        <li>
-                            <a href="#">Blog</a>
-                        </li>
-                        <li>
-                            <a href="#">Shop</a>
-                        </li>
-                        <li>
-                            <a href="#">Services</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact us</a>
-                        </li>
-                        
+    <!--Nav-->
+    <nav id="header" class="w-full z-30 top-0 py-1">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
+
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle" />
+
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                href="gallary.html">Gallary</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                href="#">About</a></li>
                     </ul>
-                </div>
-                <div class="contact flex items-center">
-                    <img src="./icons/phone.svg" alt="">
+                </nav>
+            </div>
+
+            <div class="order-1 md:order-2">
+                <a class="flex ite ms-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
+                    href="#">
+                    <!-- <svg class="fill-current text-gray-800 mr-2" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24">
+                        <path
+                            d="M5,22h14c1.103,0,2-0.897,2-2V9c0-0.553-0.447-1-1-1h-3V7c0-2.757-2.243-5-5-5S7,4.243,7,7v1H4C3.447,8,3,8.447,3,9v11 C3,21.103,3.897,22,5,22z M9,7c0-1.654,1.346-3,3-3s3,1.346,3,3v1H9V7z M5,10h2v2h2v-2h6v2h2v-2h2l0.002,10H5V10z" />
+                    </svg> -->
+                    Sayli Beauty Parlour
+                </a>
+            </div>
+
+            <div class="order-2 md:order-3 flex items-center" id="nav-content">
+                <div class="time flex items-center"><img src="./icons/clock.svg" alt="">
                     <div>
-                        <h5>Call us: (+91 7397927260)</h5>
-                        <h6>E-mail : www.saylipatil1603@gmail.com</h6>
-                    </div>
-                </div>
-                <div class="time flex items-center">
-                    <img src="./icons/clock.svg" alt="">
-                    <div>
-                        <h5>Working Hours:</h5>
+                        <!-- <h6>Working Hours:</h6> -->
                         <h6>Mon - Sat (8.00am - 7.00pm)</h6>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="site-content-wrapper">
-            <div class="nav-trigger">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-bar-chart">
-                    <line x1="12" y1="20" x2="12" y2="10" />
-                    <line x1="18" y1="20" x2="18" y2="4" />
-                    <line x1="6" y1="20" x2="6" y2="16" /></svg>
+    </nav>
+
+    <div class="carousel relative container mx-auto" style="max-width:1600px;">
+        <div class="carousel-inner relative overflow-hidden w-full">
+            <!--Slide 1-->
+            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden=""
+                checked="checked">
+            <div class="carousel-item absolute opacity-0" style="height:70vh;">
+                <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
+                    style="background-image: url('https://images.unsplash.com/photo-1500840216050-6ffa99d75160?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1797&q=80');">
+
+                    <div class="container mx-auto">
+                        <div
+                            class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                            <b>
+                                <p class="text-black text-2xl my-4">Bring out the Hidden Beauty inside you</p>
+                            </b>
+                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
+                                href="#">view product</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="site-content">
-                <header class="topbar">
-                    <div class="container flex justify-between items-center">
-                        <div class="icons">
-                            <a href="#"><img src="/icons/facebook.svg" alt=""></a>
-                            <a href="#"><img src="/icons/twitter.svg" alt=""></a>
-                            <a href="#"><img src="/icons/google.svg" alt=""></a>
-                            <a href="#"><img src="/icons/instagram.svg" alt=""></a>
-                            <a href="#"><img src="/icons/search.svg" alt=""></a>
-                        </div>
-                                           </div>
-                </header>
+            <label for="carousel-3"
+                class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+            <label for="carousel-2"
+                class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
 
-                <nav>
-                    <div class="top">
-                        <div class="container flex justify-between">
-                            <div class="contact flex items-center">
-                                <img src="./icons/phone.svg" alt="">
-                                <div>
-                                    <h5>Call us: (+91 7397927260)</h5>
-                                    <h6>E-mail : www.saylipatil1603@gmail.com</h6>
-                                </div>
-                            </div>
-                            <div class="branding">
-                                <img src="./icons/logo.svg" alt="">
-                            </div>
-                            <div class="time flex items-center">
-                                <img src="./icons/clock.svg" alt="">
-                                <div>
-                                    <h5>Working Hours:</h5>
-                                    <h6>Mon - Sat (8.00am - 7.00pm)</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="navbar magic-shadow">
-                        <div class="container flex justify-center">
-                            <a href="#" class="active">Home</a>
-                            <a href="#">About us</a>
-                            <a href="#">Features</a>
-                            <a href="#">Blog</a>
-                            <a href="#">Shop</a>
-                            <a href="#">Services</a>
-                            <a href="#">Gallery</a>
-                            <a href="#">Contact us</a>
-                        </div>
-                    </div>
-                </nav>
+            <!--Slide 2-->
+            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+            <div class="carousel-item absolute opacity-0 bg-cover bg-right" style="height:70vh;">
+                <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
+                    style="background-image: url('https://images.unsplash.com/photo-1583241800698-e8ab01830a07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');">
 
-                <header class="hero flex items-center">
-                    <div class="container">
-                        <div class="welcome flex items-center">
-                            <span>Hey users!</span>
-                            <img src="./icons/logo-2.svg" alt="">
-                        </div>
-                        <h1>Welcome to <span>Sayli Beauty Parlour &<span> Cake $hop </h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the
-                            industry's standard dummy.</p>
-                        <div>
-                            <button class="btn btn-primary">View Updates</button>
-                            <button class="btn btn-secondary">All Updates</button>
-                        </div>
-                        
-                    </div>
-                </header>
+                    <div class="container mx-auto">
+                        <div
+                            class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                            <b>
+                                <p class="text-black text-2xl my-4">Get Party Ready with Us</p>
+                            </b>
+                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
+                                href="#">view product</a>
 
-                <section class="top-products">
-                    <div class="container">
-                        <h1 class="section-heading"></h1>
-                        <div class="slider">
-                           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                  <div class="carousel-item active">
-                                    <img src="/images/bauty3.jpg" class="d-block w-100" alt="abc">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img src="/images/beauty4.jpg" class="d-block w-100" alt="abc">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img src="/images/beauty5.jpg" class="d-block w-100" alt="...">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img src="/images/beauty6.jpg" class="d-block w-100" alt="...">
-                                  </div>
-                                  <div class="carousel-item">
-                                    <img src="/images/beauty7.jpg" class="d-block w-100" alt="...">
-                                  </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                  <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                  <span class="visually-hidden">Next</span>
-                                </button>
-                              </div>
-                        </div>
-                        <div class="text-center btn-wrapper">
-                            <button class="btn btn-secondary">View More</button>
                         </div>
                     </div>
-                </section>
-                <section class="about-meal">
-                    <div class="container">
-                        <h1 class="section-heading">Bridle Makeovers</h1>
-                        <div class="about-meal-wrap flex">
-                            <div class="flex-1">
-                                <img src="/images/beauty4.jpg" alt="">
-                            </div>
-                            <div class="flex-1">
-                                <h2>Your Wedding look incomplete without Bridal Makeup!</h2>
-                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                                    piece of
-                                    classical Latin literature from 45 BC, making it over 2000 years old. Richard
-                                    McClintock, a
-                                    Latin professor at Hampden Sydney College in Virginia, The standard chunk of Lorem
-                                    Ipsum used
-                                    since the 1500s is reproduced below for those interested.</p>
-                                <button class="btn btn-secondary">Read More</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="our-services">
-                    <div class="container">
-                        <h1 class="section-heading">Our services</h1>
-                        <div class="card-wrapper flex">
-                            <div class="service-card magic-shadow-sm">
-                                <img class="icon" src="/icons/transport.svg" alt="">
-                                <h2>Free Home delivery</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <button class="btn btn-secondary">Read More</button>
-                            </div>
-                            <div class="service-card magic-shadow-sm">
-                                <img class="icon" src="/icons/bag.svg" alt="">
-                                <h2 class="text-primary">Customer_Satisfaction</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <button class="btn btn-primary">Read More</button>
-                            </div>
-                            <div class="service-card magic-shadow-sm">
-                                <img class="icon" src="/icons/usd.svg" alt="">
-                                <h2>Customised_products</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <button class="btn btn-secondary">Read More</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="big-deal">
-                    <div class="container">
-                        <h1 class="section-heading text-pure">Get Groom With us</h1>
-                        <div class="timer">
-                            <div>
-                                <span><img src="/images/hair11.jpg"></span>
-                                <span>haircare</span>
-                            </div>
-                            <div>
-                                <span><img src="/images/hair12.jpg"></span>
-                                <span>Hours</span>
-                            </div>
-                            <div>
-                                <span><img src="/images/hair13.jpg"></span>
-                                <span>Minutes</span>
-                            </div>
-                            <div>
-                                <span><img src="/images/hair14.jpg"></span>
-                                <span>Seconds</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <section class="latest-news">
-                    <div class="container">
-                        <h1 class="section-heading">Lastest News from Blog</h1>
-                        <div class="article-wrapper">
-                            <article class="card magic-shadow-sm">
-                                <div>
-                                    <img src="/images/hair13.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <div class="post-meta flex items-center justify-between">
-                                        <span>July 03, 2017</span>
-                                        <div>
-                                            <span>Posted by <strong>facial-regeme</strong></span>
-                                            <span class="comment-count">12 Comments</span>
-                                        </div>
-                                    </div>
-
-                                    <h2>Lorem Ipsum is simply dummy text of the printing</h2>
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content of a
-                                        page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                        more
-                                        letters.</p>
-                                </div>
-                            </article>
-                            <article class="card magic-shadow-sm">
-                                <div>
-                                    <img src="/images/hair12.jpg" alt="">
-                                </div>
-                                <div class="card-content">
-                                    <div class="post-meta flex items-center justify-between">
-                                        <span>July 03, 2017</span>
-                                        <div>
-                                            <span>Posted by <strong>facial-regeme</strong></span>
-                                            <span class="comment-count">12 Comments</span>
-                                        </div>
-                                    </div>
-
-                                    <h2>Lorem Ipsum is simply dummy text of the printing</h2>
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content of a
-                                        page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                        more
-                                        letters.</p>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="text-center btn-wrapper">
-                            <button class="btn btn-secondary">View All</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="subscribe">
-                    <div class="container flex items-center">
-                        <div>
-                            <img src="/images/hair14.jpg" alt="">
-                        </div>
-                        <div>
-                            <h1>Subscribe to our Youtube Channel</h1>
-                            <p>Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many
-                                web sites
-                                still in their infancy.</p>
-                            <div class="input-wrap">
-                                <input type="text" placeholder="Sayli beauty Parlour,motala">
-                                <button>Subscribe</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="contact-us flex">
-                    <div class="contact-info-wrapper">
-                        <h1 class="section-heading">Contact us</h1>
-                        <div class="contact-info">
-                            <div>
-                                <div>
-                                    <img src="/icons/phone-2.svg" alt="">
-                                    <div>
-                                        <span>Call us:</span>
-                                        <span>(+84) 123 456 789</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <img src="/icons/bag-2.svg" alt="">
-                                    <div>
-                                        <span>E-mail ::</span>
-                                        <span>www.saylipatil1603@gmail.com</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <img src="/icons/clock-2.svg" alt="">
-                                    <div>
-                                        <span>Working Hours:</span>
-                                        <span>Mon - Sat (8.00am - 12.00am)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="map">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206253.45012861438!2d-115.31508258571672!3d36.124918453865035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80beb782a4f57dd1%3A0x3accd5e6d5b379a3!2sLas%20Vegas%2C%20NV%2C%20USA!5e0!3m2!1sen!2sru!4v1580850940897!5m2!1sen!2sru"
-                            width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                    </div>
-                </section>
-
-                <footer>
-                    <div class="container">
-                        <div class="box">
-                            <h3>About us</h3>
-                            <p>It was popularised in the 1960 with the release of Latest sheets containing Lorem Ipsum
-                                passage.</p>
-                            <button class="btn btn-secondary">Read More</button>
-                        </div>
-                        <div class="box">
-                            <h3>Quik Links</h3>
-                            <ul>
-                                <li>
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    <a href="#">About us</a>
-                                </li>
-                                <li>
-                                    <a href="#">Products</a>
-                                </li>
-                                <li>
-                                    <a href="#">Blog</a>
-                                </li>
-                                <li>
-                                    <a href="#">Services</a>
-                                </li>
-                                <li>
-                                    <a href="#">Gallery</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contact us</a>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="box">
-                            <h3>Follow Us</h3>
-                            <div>
-                                <ul>
-                                    <li>
-                                        <a href="https://www.facebook.com/codersgyan">
-                                            <img src="/icons/facebook.svg" alt="">
-                                            <span>Facebook</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://twitter.com/CoderGyan">
-                                            <img src="/icons/twitter.svg" alt="">
-                                            <span>Twitter</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="/icons/google.svg" alt="">
-                                            <span>Google +</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/codersgyan/">
-                                            <img src="/icons/instagram.svg" alt="">
-                                            <span>Instagram</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="box instagram-api">
-                            <h3>Instagram</h3>
-                            <div class="post-wrap">
-                                <div>
-                                    <img src="/images/food-table.jpg" alt="">
-                                </div>
-                                <div>
-                                    <img src="/images/food-table.jpg" alt="">
-                                </div>
-                                <div>
-                                    <img src="/images/food-table.jpg" alt="">
-                                </div>
-                                <div>
-                                    <img src="/images/food-table.jpg" alt="">
-                                </div>
-                                <div>
-                                    <img src="/images/food-table.jpg" alt="">
-                                </div>
-                                <div>
-                                    <img src="/images/food-table.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <footer class="copyright">
-                    <div>
-                        Copyright © 2020 .All rights reserved by <a href="https://www.instagram.com/codersgyan/">Coder's Gyan</a>.
-                    </div>
-                </footer>
+                </div>
             </div>
+            <label for="carousel-1"
+                class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900  leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+            <label for="carousel-3"
+                class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900  leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+
+            <!--Slide 3-->
+            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+            <div class="carousel-item absolute opacity-0" style="height:70vh;">
+                <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-bottom"
+                    style="background-image: url('  https://images.unsplash.com/photo-1581674210501-c760093514e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');">
+
+                    <div class="container mx-auto">
+                        <div
+                            class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                            <b>
+                                <p class="text-black text-2xl my-6">
+
+                                    Enhance Your Beauty and Looks with our Famous
+                                    Hair
+                                    Treatments
+
+                                </p>
+                            </b>
+                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
+                                href="ABOUT">view product</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <label for="carousel-2"
+                class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900  leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+            <label for="carousel-1"
+                class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900  leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+
+            <!-- Add additional indicators for each slide-->
+            <ol class="carousel-indicators">
+                <li class="inline-block mr-3">
+                    <label for="carousel-1"
+                        class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</label>
+                </li>
+                <li class="inline-block mr-3">
+                    <label for="carousel-2"
+                        class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</label>
+                </li>
+                <li class="inline-block mr-3">
+                    <label for="carousel-3"
+                        class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</label>
+                </li>
+            </ol>
+
         </div>
     </div>
 
 
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <h1 class="text-3xl font-medium title-font text-gray-800 mb-4 text-center">Our Services</h1>
+            <div class="container px-5 py-24 mx-auto">
+
+                <div class="flex flex-wrap -m-4">
+
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://limelitesalonandspa.com/wp-content/uploads/2023/03/image-45-1536x1025.jpeg">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Hair Color</h2>
+                            <!-- <p class="mt-1">$16.00</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://media.istockphoto.com/id/603912306/photo/master-in-the-cabin-removes-facial-hair-strand.jpg?s=612x612&w=is&k=20&c=_P-KV9HHIlbSwaE6GK0B1Hmbk8jyJvNPDN6fYw1cXgE=">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"> Threading &
+                                Facial
+                                Waxing</h2>
+                            <!-- <p class="mt-1">$16.00</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Facial & Clean-Up</h2>
+                            <!-- <p class="mt-1">$21.15</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://plus.unsplash.com/premium_photo-1661340702301-53a479f3781f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=886&q=80">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Waxing</h2>
+                            <!-- <p class="mt-1">$12.00</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Bleach</h2>
+                            <!-- <p class="mt-1">$18.40</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Menicure & Pedicure</h2>
+                            <!-- <p class="mt-1">$16.00</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://images.unsplash.com/photo-1614609819116-eee9c271a928?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=903&q=80">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Cut & STyle</h2>
+                            <!-- <p class="mt-1">$21.15</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://plus.unsplash.com/premium_photo-1661255395799-a300794397fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzY2fHxza2luY2FyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">D-Tan</h2>
+                            <!-- <p class="mt-1">$12.00</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://www.southindiafashion.com/wp-content/uploads/2019/08/south-indian-bridal-makeup-artists.jpg">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Bridal Make-up</h2>
+                            <!-- <p class="mt-1">$18.40</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://images.unsplash.com/photo-1674884060571-96a46a9a7a72?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Basic Mehndi</h2>
+                            <!-- <p class="mt-1">$18.40</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://img.weddingbazaar.com/shaadisaga_production/photos/pictures/002/738/088/new_medium/1P2A2038.JPG?1624709081">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Dulhan Mehndi</h2>
+                            <!-- <p class="mt-1">$18.40</p> -->
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block"
+                                src="https://www.bollywoodshaadis.com/img/article-201836810192037160000.jpg">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Hair treatments</h2>
+                            <!-- <p class="mt-1">$18.40</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!--                        cards                   -->
+    <section class="text-gray-600 body-font">
+        <h1 class="text-3xl font-medium title-font text-gray-800 mb-4 text-center">Our Packages</h1>
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4">
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center"
+                            src="https://media.istockphoto.com/id/516981844/photo/hairdresser-washing-hair.jpg?s=612x612&w=is&k=20&c=v3JmD2gReWItO7UGWgUWHmY8nMLPQtp-HERI1NvjzHo="
+                            alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY
+                            </h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">GET Pampered</h1>
+                            <p class="leading-relaxed mb-3">
+                                <li>Fullarms CHocolate Waxing</li>
+                                <li>Full leg CHocolate Waxing</li>
+                                <li>Underarms CHocolate Waxing</li>
+                                <li>Fruit Cleanup</li>
+                                <li>Eyebrows Threading</li>
+                                <li>Upperlips Threading</li>
+
+                            </p>
+                            <div class="flex items-center flex-wrap ">
+                                <p class="pt-1 text-gray-900">Rs 999/-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center"
+                            src="https://media.istockphoto.com/id/1283683867/photo/spa-composition-on-the-table-and-christmas-accessories-relaxation-care-products-skin-care.jpg?s=1024x1024&w=is&k=20&c=u_TSop8gJqAseu5KKwXtKkgB5CwkFj1TC_SLX2mAxR4="
+                            alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY
+                            </h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Festive Package</h1>
+                            <p class="leading-relaxed mb-3">
+                                <li>VLCC Cleanup</li>
+                                <li>Fullarms Normal Waxing</li>
+                                <li>Underarms Normal Waxing</li>
+                                <li>Nailscut,file & polish hands</li>
+                                <li>Face & Neck De-Tan</li>
+                                <li>Eyebrows Threading</li>
+                                <li>Upperlips Threading</li>
+
+                            </p>
+                            <div class="flex items-center flex-wrap ">
+                                <p class="pt-1 text-gray-900">Rs 1499/-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                        <img class="lg:h-48 md:h-36 w-full object-cover object-center"
+                            src="https://media.istockphoto.com/id/515597042/photo/close-up-image-of-wedding-hairstyle.jpg?s=612x612&w=is&k=20&c=_ORCambgUnFFJFSe-C2ddduczj1tmPL_c3lwXoNaucw="
+                            alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY
+                            </h2>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Bridal Package</h1>
+                            <p class="leading-relaxed mb-3">
+                                <li>Lotus White Glow Facial</li>
+                                <li>Fullarms Rica Waxing</li>
+                                <li>Underarms Rica Waxing</li>
+                                <li>Full leg Rica Waxing</li>
+                                <li>Classic Pedicure</li>
+                                <li>Face & Neck De-Tan Pack</li>
+                                <li>Eyebrows Threading</li>
+                                <li>Upperlips Threading</li>
+
+                            </p>
+                            <div class="flex items-center flex-wrap ">
+                                <p class="pt-1 text-gray-900">Rs 2499/-</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--                        testimonials                           -->
+
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Testimonials</h1>
+
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-wrap -m-4">
+                    <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+                        <div class="h-full text-center">
+                            <img alt="testimonial"
+                                class="w-40 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+                                src="https://media.istockphoto.com/id/1204470134/vector/cheerful-cartoon-girl-with-brown-hair-flat-isolated-avatar-in-circle-frame.jpg?s=612x612&w=is&k=20&c=LQmTdB5zy2dma21TcglB2gl0Au-YkqKvnFw-mvThCHg=">
+                            <p class="leading-relaxed"> Absolutly great service i got.
+                                She
+                                provided me with the best herbal facial for my acne-prone skin. I haven’t seen any
+                                breakouts since a month after the facial. I strongly refer her to anyone with damaged or
+                                acne-prone skin.</p>
+                            <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Shivani Joshi
+                            </h2>
+
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+                        <div class="h-full text-center">
+                            <img alt="testimonial"
+                                class="w-40 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+                                src="https://media.istockphoto.com/id/1204470119/vector/cute-african-girl-with-glasses-flat-avatar-portrait-inside-circle-frame.jpg?s=612x612&w=is&k=20&c=IKC0yg2yQO6Y6K3TChgHet7x9puZDgSTCmInNuyayQc=">
+                            <p class="leading-relaxed">she provided me with a simple and elegant hairstyle at my
+                                cousin’s wedding and I got lots of compliments. I was so happy with my hairstyle that I
+                                booked her for the reception as well.</p>
+                            <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Saba ahemad</h2>
+
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3 lg:mb-0 p-4">
+                        <div class="h-full text-center">
+                            <img alt="testimonial"
+                                class="w-40 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
+                                src="https://media.istockphoto.com/id/1204470091/vector/flat-cartoon-girl-user-icon-portrait-inside-circle-frame.jpg?s=612x612&w=is&k=20&c=tPTn4_AxpSfpt2yU-P2VL-df61UqSltYghdrfCJuvEc=">
+                            <p class="leading-relaxed">I strongly recommended Sayli Beauty Parlour. she is a very
+                                talented hairstylist. She suggested a beautiful haircut that suited well to my facial
+                                features and changed my entire look. I absolutely love it!</p>
+                            <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Neelam RAthi</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-gray-600 body-font">
+        <div
+            class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+            <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2"
+                        class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span class="ml-3 text-xl">Sayli Beauty Parlour</span>
+                </a>
+                <p class="mt-6 text-m text-gray-900">
+                    Add Dazel To Your Beauty With us
+
+                </p>
+            </div>
+            <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">WORKING DAYS</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Monday</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Tuesday</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Wednesday</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Thursday</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Friday</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">Saturday</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">ADDRESS</h2>
+                    <nav class="list-none mb-10">
+                        SAYLI BEAUTY PARLOUR
+                        Adarsh Nagar, Nandura Rd, Near Government Hospital,
+                        Motala-443103, Dist. Buldhana Maharashtra
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-10">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">ABOUT </h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">CONTACT</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">+91-7397927260</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">+91-7397927021</a>
+                        </li>
+                        <li>
+                            <a>
+                                Call us between (10.00 am - 7.00 pm)
+                                to make appointment</a>
+                        </li>
+
+
+                    </nav>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 w-full px-10">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">E-MAIL US</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">www.saylipatil1603@gmail.com</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">+91-7397927260</a>
+                        </li>
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800">+91-7397927021</a>
+                        </li>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-100">
+            <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                <p class="text-gray-500 text-sm text-center sm:text-left" copyright by>© sayli beauty parlour 2023
+                    <!-- <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1"
+                        target="_blank">@knyttneve</a> -->
+                </p>
+                <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+                    <a class="text-gray-500">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            class="w-5 h-5" viewBox="0 0 24 24">
+                            <path
+                                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                        </svg>
+                    </a>
+                    <a class="ml-3 text-gray-500">
+                        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path stroke="none"
+                                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                            </path>
+                            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                        </svg>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </footer>
 
 
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="js/app.js"></script>
+
 </body>
 
 </html>

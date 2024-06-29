@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <title>Document</title>
+    <style>
+        #menu-toggle:checked+#menu {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="header" class="w-full z-30 top-0 py-1 ">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3 bg-gray-800">
+
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-gray-100" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle" />
+
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-gray-300 pt-4 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-white hover:underline   py-2 px-4"
+                                href="index.html">
+                                <button>Home</button>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+            <div class="lg:w-2/3 mx-auto">
+                <div class="flex w-full mb-20 flex-wrap">
+                    <div class="flex flex-wrap md:-m-2 -m-1">
+                        <div class="flex flex-wrap w-1/2">
+                            <div class="md:p-2 p-1 w-1/2">
+                                <img alt="gallery" class="w-full object-cover h-full object-center block"
+                                    src="https://5.imimg.com/data5/SELLER/Default/2023/5/309565554/DL/PI/AX/189852925/bridal-makeup-artist-noida.jpg">
+                            </div>
+                            <div class="md:p-2 p-1 w-1/2">
+                                <img alt="gallery" class="w-full object-cover h-full object-center block"
+                                    src="https://kulsumparvez.com/blog/wp-content/uploads/2019/07/IMG-20180127-WA0077.jpg">
+                            </div>
+                            <div class="md:p-2 p-1 w-full">
+                                <img alt="gallery" class="w-full h-full object-cover object-center block"
+                                    src="https://content.jdmagicbox.com/comp/dhanbad/y7/9999px326.x326.230103033753.e3y7/catalogue/gold-queen-dhanbad-beauty-parlours-xe0j1k4dz3.jpg">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap w-1/2">
+                            <div class="md:p-2 p-1 w-full">
+                                <img alt="gallery" class="w-full h-full object-cover object-center block"
+                                    src="https://images.pexels.com/photos/13970299/pexels-photo-13970299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                            </div>
+                            <div class="md:p-2 p-1 w-1/2">
+                                <img alt="gallery" class="w-full object-cover h-full object-center block"
+                                    src="https://www.wedium.com/bhubaneswar/wp-content/uploads/2022/02/best-engagment-makeup-in-bhubaneswar.jpeg">
+                            </div>
+                            <div class="md:p-2 p-1 w-1/2">
+                                <img alt="gallery" class="w-full object-cover h-full object-center block"
+                                    src="https://i.pinimg.com/736x/e3/ae/e0/e3aee020a574103982b9e6e4dc2d389f.jpg ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap -mx-2">
+                    <div class="px-2 w-1/2">
+                        <div class="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
+                            <img alt="gallery" class="w-full object-cover h-full object-center block inset-0"
+                                src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2022/11/9b4c8417031e9053fd6fb69a59dd938c.jpg">
+
+                        </div>
+                    </div>
+                    <div class="px-2 w-1/2">
+                        <div class="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
+                            <img alt="gallery" class="w-full object-cover h-full object-center block inset-0"
+                                src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2019/07/180195425_1458896541115527_6357255802221242958_n-1.jpg">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container px-5 py-24 mx-auto flex flex-col">
+                    <div class="lg:w-4/6 mx-auto">
+                        <div class="rounded-lg h-74 overflow-hidden">
+                            <img alt="content" class="object-cover object-center h-full w-full"
+                                src="https://getethnic.com/wp-content/uploads/2021/06/186188178_143418327769528_10286604847631134_n.jpg">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="flex w-full mb-20 flex-wrap">
+                    <div class="flex flex-wrap md:-m-2 -m-1">
+                        <div class="flex flex-wrap w-1/2">
+                            <div class="md:p-2 p-1 w-1/2">
+                                <img alt="gallery" class="w-full object-cover h-full object-center block"
+                                    src="https://images.pexels.com/photos/6098347/pexels-photo-6098347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                            </div>
+                            <div class="md:p-2 p-1 w-1/2">
+                                <img alt="gallery" class="w-full object-cover h-full object-center block"
+                                    src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2022/11/43420f5926a32ca23a11708589ab039a.jpg">
+                            </div>
+                            <div class="md:p-2 p-1 w-full">
+                                <img alt="gallery" class="w-full h-full object-cover object-center block"
+                                    src="https://www.shaadibaraati.com/ckfinder/userfiles/images/__thumbs/ts31.jpg/ts31__480x600.jpg">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap w-1/2">
+                            <div class="md:p-2 p-1 w-full">
+                                <img alt="gallery" class="w-full h-full object-cover object-center block"
+                                    src="https://cdn0.weddingwire.in/article/3537/original/1280/jpg/57353-latestsouthindiansarees-vivekkrishnanphotography-stunningtemplejewelleryforthewin.webp">
+                            </div>
+                            <div class="md:p-2 p-1 w-1/2">
+                                <img alt="gallery" class="w-full object-cover h-full object-center block"
+                                    src="https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2019/07/180195425_1458896541115527_6357255802221242958_n-1.jpg">
+                            </div>
+                            <div class="md:p-2 p-1 w-1/2">
+                                <img alt="gallery" class="w-full object-cover h-full object-center block"
+                                    src="https://i.pinimg.com/564x/0b/bb/12/0bbb12950b30a870a98117ee3af5a3cf.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+</body>
+
+</html>
