@@ -5,14 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Starter Template - Nordic Shop: Tailwind Toolbox</title>
+    <title id="title" data-i18n="nav.title">Sayli Beauty Parlour</title>
+
+
+    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="main.js"></script>
+
 
     <meta name="description" content="Free open source Tailwind CSS Store template">
     <meta name="keywords"
         content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
 
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-    <link href='demo.html'>
+
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 
@@ -23,6 +32,23 @@
 
         #menu-toggle:checked+#menu {
             display: block;
+        }
+
+        /* Responsive dropdown style */
+        .language-selector-container {
+            position: left;
+            top: 20px;
+            left: 20px;
+        }
+
+        .language-selector {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
         }
 
         .hover\:grow {
@@ -74,14 +100,16 @@
 
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
 
+
+
     <!--Nav-->
     <nav id="header" class="w-full z-30 top-0 py-1">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
                 <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                    viewBox="0 0 20 20">
-                    <title>menu</title>
+                    viewBox="0 0 20 20" data-i18n="nav.menu_icon">
+                    <title id="menu" data-i18n="nav.menu_icon">menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                 </svg>
             </label>
@@ -91,16 +119,16 @@
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                                href="gallary.html">Gallary</a></li>
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                                href="#">About</a></li>
+                                href="gallary.html" data-i18n="nav.menu.gallery">Gallery</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#"
+                                data-i18n="nav.menu.about">About</a></li>
                     </ul>
                 </nav>
             </div>
 
             <div class="order-1 md:order-2">
                 <a class="flex ite ms-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
-                    href="#">
+                    href="#" data-i18n="nav.title">
                     <!-- <svg class="fill-current text-gray-800 mr-2" xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" viewBox="0 0 24 24">
                         <path
@@ -110,7 +138,7 @@
                 </a>
             </div>
 
-            <div class="order-2 md:order-3 flex items-center" id="nav-content">
+            <div class="order-2 md:order-3 flex items-center" id="nav-content" data-i18n="nav.hours">
                 <div class="time flex items-center"><img src="./icons/clock.svg" alt="">
                     <div>
                         <!-- <h6>Working Hours:</h6> -->
@@ -118,6 +146,15 @@
                     </div>
                 </div>
             </div>
+            <div class="nav-left">
+                <div class="language-selector-container">
+                    <select id="languageSelector" class="language-selector">
+                        <option value="en">English</option>
+                        <option value="mr">Marathi</option>
+                    </select>
+                </div>
+            </div>
+
         </div>
     </nav>
 
@@ -128,16 +165,19 @@
                 checked="checked">
             <div class="carousel-item absolute opacity-0" style="height:70vh;">
                 <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
-                    style="background-image: url('https://images.unsplash.com/photo-1500840216050-6ffa99d75160?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1797&q=80');">
-
+                    style="background-image: url( 'https://images.unsplash.com/photo-1581674210501-c760093514e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');">
                     <div class="container mx-auto">
                         <div
                             class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                            <b>
-                                <p class="text-black text-2xl my-4">Bring out the Hidden Beauty inside you</p>
-                            </b>
-                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
-                                href="#">view product</a>
+                            <h1 class="text-white text-7xl my-4 opacity-60">WELCOME TO</h1>
+
+                            <p class="text-black border-b border-gray-700 text-3xl opacity-80 "
+                                data-i18n="carousel.text1">
+                                Sayli Beauty
+                                Parlour</p>
+
+                            <!-- <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
+                                 href="#">view product</a> -->
                         </div>
                     </div>
 
@@ -158,10 +198,11 @@
                         <div
                             class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
                             <b>
-                                <p class="text-black text-2xl my-4">Get Party Ready with Us</p>
+                                <p class="text-black text-2xl my-4" data-i18n="carousel.text2">Get Party Ready with Us
+                                </p>
                             </b>
-                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
-                                href="#">view product</a>
+                            <!-- <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" -->
+                            <!-- href="#">view product</a> -->
 
                         </div>
                     </div>
@@ -177,22 +218,20 @@
             <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
             <div class="carousel-item absolute opacity-0" style="height:70vh;">
                 <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-bottom"
-                    style="background-image: url('  https://images.unsplash.com/photo-1581674210501-c760093514e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');">
+                    style="background-image: url(' https://images.unsplash.com/photo-1500840216050-6ffa99d75160?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1797&q=80');">
 
                     <div class="container mx-auto">
                         <div
                             class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
                             <b>
-                                <p class="text-black text-2xl my-6">
+                                <p class="text-black text-2xl my-6" data-i18n="carousel.text3">
 
-                                    Enhance Your Beauty and Looks with our Famous
-                                    Hair
-                                    Treatments
+                                    Experience The Best Beauty Services
 
                                 </p>
                             </b>
-                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
-                                href="ABOUT">view product</a>
+                            <!-- <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" -->
+                            <!-- href="ABOUT">view product</a> -->
                         </div>
                     </div>
 
@@ -225,7 +264,8 @@
 
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
-            <h1 class="text-3xl font-medium title-font text-gray-800 mb-4 text-center">Our Services</h1>
+            <h1 class="text-3xl font-medium title-font text-gray-800 mb-4 text-center" data-i18n="section.title">Our
+                Services</h1>
             <div class="container px-5 py-24 mx-auto">
 
                 <div class="flex flex-wrap -m-4">
@@ -236,8 +276,10 @@
                                 src="https://limelitesalonandspa.com/wp-content/uploads/2023/03/image-45-1536x1025.jpeg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Hair Color</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service1">Hair Color</h2>
                             <!-- <p class="mt-1">$16.00</p> -->
                         </div>
                     </div>
@@ -247,8 +289,10 @@
                                 src="https://media.istockphoto.com/id/603912306/photo/master-in-the-cabin-removes-facial-hair-strand.jpg?s=612x612&w=is&k=20&c=_P-KV9HHIlbSwaE6GK0B1Hmbk8jyJvNPDN6fYw1cXgE=">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium"> Threading &
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service2"> Threading &
                                 Facial
                                 Waxing</h2>
                             <!-- <p class="mt-1">$16.00</p> -->
@@ -260,8 +304,10 @@
                                 src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Facial & Clean-Up</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service3">Facial & Clean-Up</h2>
                             <!-- <p class="mt-1">$21.15</p> -->
                         </div>
                     </div>
@@ -271,8 +317,10 @@
                                 src="https://plus.unsplash.com/premium_photo-1661340702301-53a479f3781f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=886&q=80">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Waxing</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service4">Waxing</h2>
                             <!-- <p class="mt-1">$12.00</p> -->
                         </div>
                     </div>
@@ -282,8 +330,10 @@
                                 src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Bleach</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service5">Bleach</h2>
                             <!-- <p class="mt-1">$18.40</p> -->
                         </div>
                     </div>
@@ -293,8 +343,10 @@
                                 src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Menicure & Pedicure</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service6">Menicure & Pedicure</h2>
                             <!-- <p class="mt-1">$16.00</p> -->
                         </div>
                     </div>
@@ -304,8 +356,10 @@
                                 src="https://images.unsplash.com/photo-1614609819116-eee9c271a928?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=903&q=80">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Cut & STyle</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service7">Cut & STyle</h2>
                             <!-- <p class="mt-1">$21.15</p> -->
                         </div>
                     </div>
@@ -315,8 +369,10 @@
                                 src="https://plus.unsplash.com/premium_photo-1661255395799-a300794397fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzY2fHxza2luY2FyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">D-Tan</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service8">D-Tan</h2>
                             <!-- <p class="mt-1">$12.00</p> -->
                         </div>
                     </div>
@@ -326,8 +382,10 @@
                                 src="https://www.southindiafashion.com/wp-content/uploads/2019/08/south-indian-bridal-makeup-artists.jpg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Bridal Make-up</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service9">Bridal Make-up</h2>
                             <!-- <p class="mt-1">$18.40</p> -->
                         </div>
                     </div>
@@ -337,8 +395,10 @@
                                 src="https://images.unsplash.com/photo-1674884060571-96a46a9a7a72?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Basic Mehndi</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service10">Basic Mehndi</h2>
                             <!-- <p class="mt-1">$18.40</p> -->
                         </div>
                     </div>
@@ -348,8 +408,10 @@
                                 src="https://img.weddingbazaar.com/shaadisaga_production/photos/pictures/002/738/088/new_medium/1P2A2038.JPG?1624709081">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Dulhan Mehndi</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service11">Dulhan Mehndi</h2>
 
                         </div>
                     </div>
@@ -359,8 +421,10 @@
                                 src="https://www.bollywoodshaadis.com/img/article-201836810192037160000.jpg">
                         </a>
                         <div class="mt-4">
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                            <h2 class="text-gray-900 title-font text-lg font-medium">Hair treatments</h2>
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1"
+                                data-i18n="section.category">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium"
+                                data-i18n="section.services.service12">Hair treatments</h2>
 
                         </div>
                     </div>
@@ -369,7 +433,8 @@
     </section>
     <!--                        cards                   -->
     <section class="text-gray-600 body-font">
-        <h1 class="text-3xl font-medium title-font text-gray-800 mb-4 text-center">Our Packages</h1>
+        <h1 class="text-3xl font-medium title-font text-gray-800 mb-4 text-center" data-i18n="section2.title">Our
+            Packages</h1>
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-wrap -m-4">
                 <div class="p-4 md:w-1/3">
@@ -378,16 +443,18 @@
                             src="https://media.istockphoto.com/id/516981844/photo/hairdresser-washing-hair.jpg?s=612x612&w=is&k=20&c=v3JmD2gReWItO7UGWgUWHmY8nMLPQtp-HERI1NvjzHo="
                             alt="blog">
                         <div class="p-6">
-                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                                data-i18n="section.category">CATEGORY
                             </h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">GET Pampered</h1>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3"
+                                data-i18n="section2.cards.card1">Self Grooming Package</h1>
                             <p class="leading-relaxed mb-3">
-                                <li>Fullarms CHocolate Waxing</li>
-                                <li>Full leg CHocolate Waxing</li>
-                                <li>Underarms CHocolate Waxing</li>
-                                <li>Fruit Cleanup</li>
-                                <li>Eyebrows Threading</li>
-                                <li>Upperlips Threading</li>
+                                <li id="list" data-i18n="section2.list1.p1">Fullarms CHocolate Waxing</li>
+                                <li id="list" data-i18n="section2.list1.p2">>Full leg CHocolate Waxing</li>
+                                <li id="list" data-i18n="section2.list1.p3">Underarms CHocolate Waxing</li>
+                                <li id="list" data-i18n="section2.list1.p4">Fruit Cleanup</li>
+                                <li id="list" data-i18n="section2.list1.p5">Eyebrows Threading</li>
+                                <li id="list" data-i18n="section2.list1.p6">li>Upperlips Threading</li>
 
                             </p>
                             <div class="flex items-center flex-wrap ">
@@ -402,17 +469,19 @@
                             src="https://media.istockphoto.com/id/1283683867/photo/spa-composition-on-the-table-and-christmas-accessories-relaxation-care-products-skin-care.jpg?s=1024x1024&w=is&k=20&c=u_TSop8gJqAseu5KKwXtKkgB5CwkFj1TC_SLX2mAxR4="
                             alt="blog">
                         <div class="p-6">
-                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                                data-i18n="section.category">CATEGORY
                             </h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Festive Package</h1>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3"
+                                data-i18n="section2.cards.card2">Festive Package</h1>
                             <p class="leading-relaxed mb-3">
-                                <li>VLCC Cleanup</li>
-                                <li>Fullarms Normal Waxing</li>
-                                <li>Underarms Normal Waxing</li>
-                                <li>Nailscut,file & polish hands</li>
-                                <li>Face & Neck De-Tan</li>
-                                <li>Eyebrows Threading</li>
-                                <li>Upperlips Threading</li>
+                                <li id="list2" data-i18n="section2.list2.p1">VLCC Cleanup</li>
+                                <li id="list2" data-i18n="section2.list2.p2">Fullarms Normal Waxing</li>
+                                <li id="list2" data-i18n="section2.list2.p3">>Underarms Normal Waxing</li>
+                                <li id="list2" data-i18n="section2.list2.p4">Nailscut,file & polish hands</li>
+                                <li id="list2" data-i18n="section2.list2.p5">Face & Neck De-Tan</li>
+                                <li id="list2" data-i18n="section2.list2.p6">Eyebrows Threading</li>
+                                <li id="list2" data-i18n="section2.list2.p7">Upperlips Threading</li>
 
                             </p>
                             <div class="flex items-center flex-wrap ">
@@ -428,18 +497,20 @@
                             src="https://media.istockphoto.com/id/515597042/photo/close-up-image-of-wedding-hairstyle.jpg?s=612x612&w=is&k=20&c=_ORCambgUnFFJFSe-C2ddduczj1tmPL_c3lwXoNaucw="
                             alt="blog">
                         <div class="p-6">
-                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY
+                            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                                data-i18n="section.category">CATEGORY
                             </h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Bridal Package</h1>
+                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3"
+                                data-i18n="section2.cards.card3">Bridal Package</h1>
                             <p class="leading-relaxed mb-3">
-                                <li>Lotus White Glow Facial</li>
-                                <li>Fullarms Rica Waxing</li>
-                                <li>Underarms Rica Waxing</li>
-                                <li>Full leg Rica Waxing</li>
-                                <li>Classic Pedicure</li>
-                                <li>Face & Neck De-Tan Pack</li>
-                                <li>Eyebrows Threading</li>
-                                <li>Upperlips Threading</li>
+                                <li id="list3" data-i18n="section2.list3.p1">Lotus White Glow Facial</li>
+                                <li id="list3" data-i18n="section2.list3.p2">Fullarms Rica Waxing</li>
+                                <li id="list3" data-i18n="section2.list3.p3">Underarms Rica Waxing</li>
+                                <li id="list3" data-i18n="section2.list3.p4">Full leg Rica Waxing</li>
+                                <li id="list3" data-i18n="section2.list3.p5">Classic Pedicure</li>
+                                <li id="list3" data-i18n="section2.list3.p6">Face & Neck De-Tan Pack</li>
+                                <li id="list3" data-i18n="section2.list3.p7">Eyebrows Threading</li>
+                                <li id="list3" data-i18n="section2.list3.p8">Upperlips Threading</li>
 
                             </p>
                             <div class="flex items-center flex-wrap ">
@@ -456,7 +527,8 @@
 
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
-            <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Testimonials</h1>
+            <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center" data-i18n="testimonials.title">
+                Testimonials</h1>
 
             <div class="container px-5 py-24 mx-auto">
                 <div class="flex flex-wrap -m-4">
@@ -465,13 +537,15 @@
                             <img alt="testimonial"
                                 class="w-40 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
                                 src="https://media.istockphoto.com/id/1204470134/vector/cheerful-cartoon-girl-with-brown-hair-flat-isolated-avatar-in-circle-frame.jpg?s=612x612&w=is&k=20&c=LQmTdB5zy2dma21TcglB2gl0Au-YkqKvnFw-mvThCHg=">
-                            <p class="leading-relaxed"> Absolutly great service i got.
+                            <p class="leading-relaxed" data-i18n="testimonials.description.p1"> Absolutly great service
+                                i got.
                                 She
                                 provided me with the best herbal facial for my acne-prone skin. I haven’t seen any
                                 breakouts since a month after the facial. I strongly refer her to anyone with damaged or
                                 acne-prone skin.</p>
                             <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
-                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Shivani Joshi
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm"
+                                data-i18n="testimonials.data.name1">Shivani Joshi
                             </h2>
 
                         </div>
@@ -481,11 +555,13 @@
                             <img alt="testimonial"
                                 class="w-40 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
                                 src="https://media.istockphoto.com/id/1204470119/vector/cute-african-girl-with-glasses-flat-avatar-portrait-inside-circle-frame.jpg?s=612x612&w=is&k=20&c=IKC0yg2yQO6Y6K3TChgHet7x9puZDgSTCmInNuyayQc=">
-                            <p class="leading-relaxed">she provided me with a simple and elegant hairstyle at my
+                            <p class="leading-relaxed" data-i18n="testimonials.description.p2">she provided me with a
+                                simple and elegant hairstyle at my
                                 cousin’s wedding and I got lots of compliments. I was so happy with my hairstyle that I
                                 booked her for the reception as well.</p>
                             <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
-                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Saba ahemad</h2>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm"
+                                data-i18n="testimonials.data.name2">Saba ahemad</h2>
 
                         </div>
                     </div>
@@ -494,11 +570,13 @@
                             <img alt="testimonial"
                                 class="w-40 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"
                                 src="https://media.istockphoto.com/id/1204470091/vector/flat-cartoon-girl-user-icon-portrait-inside-circle-frame.jpg?s=612x612&w=is&k=20&c=tPTn4_AxpSfpt2yU-P2VL-df61UqSltYghdrfCJuvEc=">
-                            <p class="leading-relaxed">I strongly recommended Sayli Beauty Parlour. she is a very
+                            <p class="leading-relaxed" data-i18n="testimonials.description.p3">I strongly recommended
+                                Sayli Beauty Parlour. she is a very
                                 talented hairstylist. She suggested a beautiful haircut that suited well to my facial
                                 features and changed my entire look. I absolutely love it!</p>
                             <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
-                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Neelam RAthi</h2>
+                            <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm"
+                                data-i18n="testimonials.data.name3">Neelam RAthi</h2>
                         </div>
                     </div>
 
@@ -517,9 +595,9 @@
                         class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                     </svg>
-                    <span class="ml-3 text-xl">Sayli Beauty Parlour</span>
+                    <span class="ml-3 text-xl" data-i18n="footer.title">Sayli Beauty Parlour</span>
                 </a>
-                <p class="mt-6 text-m text-gray-900">
+                <p class="mt-6 text-m text-gray-900" data-i18n="footer.description">
                     Add Dazel To Your Beauty With us
 
                 </p>
@@ -527,41 +605,44 @@
             <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
 
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">WORKING DAYS</h2>
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"
+                        data-i18n="footer.header">WORKING DAYS</h2>
                     <nav class="list-none mb-10">
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800">Monday</a>
+                            <a class="text-gray-600 hover:text-gray-800" data-i18n="footer.menu.day1">Monday</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800">Tuesday</a>
+                            <a class="text-gray-600 hover:text-gray-800" data-i18n="footer.menu.day2">Tuesday</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800">Wednesday</a>
+                            <a class="text-gray-600 hover:text-gray-800" data-i18n="footer.menu.day3">Wednesday</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800">Thursday</a>
+                            <a class="text-gray-600 hover:text-gray-800" data-i18n="footer.menu.day4">Thursday</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800">Friday</a>
+                            <a class="text-gray-600 hover:text-gray-800" data-i18n="footer.menu.day5">Friday</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800">Saturday</a>
+                            <a class="text-gray-600 hover:text-gray-800" data-i18n="footer.menu.day6">Saturday</a>
                         </li>
                     </nav>
                 </div>
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">ADDRESS</h2>
-                    <nav class="list-none mb-10">
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"
+                        data-i18n="footer.address">ADDRESS</h2>
+                    <nav class="list-none mb-10" data-i18n="footer.data">
                         SAYLI BEAUTY PARLOUR
                         Adarsh Nagar, Nandura Rd, Near Government Hospital,
                         Motala-443103, Dist. Buldhana Maharashtra
                     </nav>
                 </div>
                 <div class="lg:w-1/4 md:w-1/2 w-full px-10">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">ABOUT </h2>
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"
+                        data-i18n="footer.about">ABOUT </h2>
                     <nav class="list-none mb-10">
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800">CONTACT</a>
+                            <a class="text-gray-600 hover:text-gray-800" data-i18n="footer.contact">CONTACT</a>
                         </li>
                         <li>
                             <a class="text-gray-600 hover:text-gray-800">+91-7397927260</a>
@@ -570,7 +651,7 @@
                             <a class="text-gray-600 hover:text-gray-800">+91-7397927021</a>
                         </li>
                         <li>
-                            <a>
+                            <a id="data" data-i18n="footer.appointment">
                                 Call us between (10.00 am - 7.00 pm)
                                 to make appointment</a>
                         </li>
@@ -579,7 +660,8 @@
                     </nav>
                 </div>
                 <div class="lg:w-1/4 md:w-1/2 w-full px-10">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">E-MAIL US</h2>
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3"
+                        data-i18n="footer.E-mail">E-MAIL US</h2>
                     <nav class="list-none mb-10">
                         <li>
                             <a class="text-gray-600 hover:text-gray-800">www.saylipatil1603@gmail.com</a>
@@ -601,6 +683,7 @@
                     <!-- <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1"
                         target="_blank">@knyttneve</a> -->
                 </p>
+
                 <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
                     <a class="text-gray-500">
                         <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -640,6 +723,8 @@
 
 
 
+
 </body>
+
 
 </html>

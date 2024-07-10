@@ -1,0 +1,102 @@
+{
+    "nav": {
+        "header": "Sayli Beauty Parlour",
+        "menu_icon": "Menu",
+        "menu": {
+            "gallery": "Gallery",
+            "about": "About"
+        },
+        "title": "Sayli Beauty Parlour",
+        "hours": "Mon - Sat (8.00am - 7.00pm)"
+    },
+    "carousel": {
+        "text1": "Sayli Beauty Parlour",
+        "text2": "Get Party Ready with Us",
+        "text3": "Experience The Best Beauty Services"
+    },
+    "section": {
+        "title": "Our Services",
+        "category": "CATEGORY",
+        "services": {
+            "service1": "Hair Color",
+            "service2": "Threading & Facial Waxing",
+            "service3": "Facial & Clean-Up",
+            "service4": "Waxing",
+            "service5": "Bleach",
+            "service6": "Menicure & Pedicure",
+            "service7": "Cut & STyle",
+            "service8": "D-Tan",
+            "service9": "Bridal Make-up",
+            "service10": "Basic Mehndi",
+            "service11": "Dulhan Mehndi",
+            "service12": "Hair Treatments"
+        }
+    },
+    "section2": {
+        "title": "Our Packages",
+        "cards": {
+            "card1": "Self Grooming Package",
+            "card2": " Festive Package",
+            "card3": " Bridal Package"
+        },
+        "list1": {
+            "p1": "Fullarms CHocolate Waxing",
+            "p2": "Full leg CHocolate Waxing",
+            "p3": "Underarms CHocolate Waxing",
+            "p4": "Fruit Cleanup",
+            "p5": "Eyebrows Threading",
+            "p6": "Upperlips Threading"
+        },
+        "list2": {
+            "p1": "VLCC Cleanup",
+            "p2": "Fullarms Normal Waxing",
+            "p3": "Underarms Normal Waxing",
+            "p4": "Nailscut,file & polish hands",
+            "p5": "Face & Neck De-Tan",
+            "p6": "Eyebrows Threading",
+            "p7": "Upperlips Threading"
+        },
+        "list3": {
+            "p1": "Lotus White Glow Facial",
+            "p2": "Fullarms Rica Waxing",
+            "p3": "Underarms Rica Waxing",
+            "p4": "Full leg Rica Waxing",
+            "p5": "Classic Pedicure",
+            "p6": "Face & Neck De-Tan Pack",
+            "p7": "Eyebrows Threading",
+            "p8": "Upperlips Threading"
+        }
+    },
+    "testimonials": {
+        "title": "Testimonials",
+        "description": {
+            "p1": "Absolutly great service i got.She provided me with the best herbal facial for my acne-prone skin. I haven’t seen anybreakouts since a month after the facial. I strongly refer her to anyone with damaged or acne-prone skin.",
+            "p2": "she provided me with a simple and elegant hairstyle at my cousin’s wedding and I got lots of compliments. I was so happy with my hairstyle that I booked her for the reception as well.",
+            "p3": "I strongly recommended Sayli Beauty Parlour. she is a very talented hairstylist. She suggested a beautiful haircut that suited well to my facial features and changed my entire look. I absolutely love it!"
+        },
+        "data": {
+            "name1": "Shivani Joshi",
+            "name2": "Saba ahemad",
+            "name3": "Neelam RAthi"
+        }
+    },
+    "footer": {
+        "title": "Sayli Beauty Parlour",
+        "description": " Add Dazel To Your Beauty With us",
+        "header": "WORKING DAYS",
+        "menu": {
+            "day1": "Monday",
+            "day2": "Tuesday",
+            "day3": "Wednesday",
+            "day4": "Thursday",
+            "day5": "Friday",
+            "day6": "Saturday"
+        },
+        "address": "ADDRESS",
+        "data": "SAYLI BEAUTY PARLOUR Adarsh Nagar, Nandura Rd, Near Government Hospital, Motala-443103, Dist. Buldhana Maharashtra",
+        "about": "ABOUT",
+        "contact": "CONTACT",
+        "appointment": " Call us between (10.00 am - 7.00 pm) to make appointment",
+        "E-mail": "E-MAIL US"
+    }
+}

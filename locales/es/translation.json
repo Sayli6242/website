@@ -1,0 +1,12 @@
+{
+    "nav": {
+        "header": "Salón de Belleza Sayli",
+        "menu_icon": "Menú",
+        "menu": {
+            "gallery": "Galería",
+            "about": "Acerca de"
+        },
+        "title": "Salón de Belleza Sayli",
+        "hours": "Lun - Sáb (8:00 am - 7:00 pm)"
+    }
+}
